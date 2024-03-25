@@ -7,7 +7,7 @@
  * Description: imprime le caractère
  * @c: caractère à afficher
 */
-void print_c(va_list format)
+void print_char(va_list format)
 {
 	char c = va_arg(format, char);
 
