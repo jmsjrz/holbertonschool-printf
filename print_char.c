@@ -7,7 +7,7 @@
 */
 void print_char(va_list format)
 {
-	char c = va_arg(format, char);
+	char c = va_arg(format, int);
 
 	_putchar(c);
 }
