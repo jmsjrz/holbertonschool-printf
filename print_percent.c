@@ -3,7 +3,7 @@
 /**
  * print_percent - imprime le caractère %
  * Description: imprime le caractère %
- * @c: caractère pourcentage
+ * @format: caractère pourcentage
 */
 void print_percent(va_list format)
 {

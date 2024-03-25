@@ -9,4 +9,6 @@ void print_char(va_list format);
 
 void print_percent(va_list format);
 
+void print_string(va_list format);
+
 #endif /* MAIN_H */

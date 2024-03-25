@@ -3,7 +3,7 @@
 /**
  * print_char - imprime le caractère
  * Description: imprime le caractère
- * @c: caractère à afficher
+ * @format: caractère à afficher
 */
 void print_char(va_list format)
 {
