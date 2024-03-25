@@ -4,10 +4,12 @@
  * print_char - imprime le caractère
  * Description: imprime le caractère
  * @format: caractère à afficher
+ * Return: nombre de caractères
 */
-void print_char(va_list format)
+int print_char(va_list format)
 {
 	char c = va_arg(format, int);
 
 	_putchar(c);
+	return (1);
 }

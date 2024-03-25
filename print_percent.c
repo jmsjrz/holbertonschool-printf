@@ -4,10 +4,12 @@
  * print_percent - imprime le caractère %
  * Description: imprime le caractère %
  * @format: caractère pourcentage
+ * Return: nombre de caractères
 */
-void print_percent(va_list format)
+int print_percent(va_list format)
 {
 	va_arg(format, char);
 
 	_putchar('%');
+	return (1);
 }
