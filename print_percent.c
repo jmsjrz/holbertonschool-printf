@@ -3,13 +3,13 @@
 /**
  * print_percent - imprime le caractère %
  * Description: imprime le caractère %
- * @format: caractère pourcentage
  * Return: nombre de caractères
 */
-int print_percent(va_list format)
+int print_percent()
 {
-	va_arg(format, char);
-
+	/* Affichage du caractere % */
 	_putchar('%');
+
+	/* Retourne le nombre de caractere */
 	return (1);
 }

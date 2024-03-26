@@ -8,8 +8,12 @@
 */
 int print_char(va_list format)
 {
+	/* Récupération de la valeur actuelle de la liste en entier. */
 	char c = va_arg(format, int);
 
+	/* Affichage de la valeur. */
 	_putchar(c);
+
+	/* Retourne le nombre de caracteres */
 	return (1);
 }
