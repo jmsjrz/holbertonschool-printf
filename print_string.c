@@ -1,35 +1,35 @@
 #include "main.h"
 
 /**
- * print_string - imprime la chaine de caractères
- * Description: imprime la chaine de caractères
- * @format: chaine de caractères à afficher
- * Return: nombre de caractères
+* print_string - prints a string
+* @args: variable argument list containing the string to print
+*
+* Description: Extracts and outputs a string from the variable argument list,
+* character by character, until the null terminator is encountered. If the
+* provided string is NULL, the function will simply return without printing
+* anything. This function is intended to serve as a handler for the '%s'
+* format specifier in a printf-like function.
+*
+* Return: The number of characters printed, excluding the null terminator.
 */
-int print_string(va_list format)
+int print_string(va_list args)
 {
-	/* Nombre de caracteres */
-	int length = 0;
+	int length = 0; /* Character count */
 
-	/* Récupération de la valeur actuelle de la liste en pointeur de caracteres. */
-	char *s = va_arg(format, char*);
+	/* Retrieve string from va_list */
+	char *s = va_arg(args, char*);
 
-	/* Gestion du pointeur null */
+	/* Handle NULL string case */
 	if (s != NULL)
 	{
-		/* Boucle jusqu'au caractere de fin */
+		/* Iterate over each character in the string */
 		while (*s != '\0')
 		{
-			/* Affiche la valeur du pointeur actuelle. */
-			_putchar(*s);
-
-			/* Incremente le nombre de caractere */
-			length++;
-
-			/* Incremente l'adresse du pointeur */
-			s++;
+			_putchar(*s); /* Output current character */
+			length++;     /* Increment character count */
+			s++;          /* Advance to next character */
 		}
 	}
 
-	return (length);
+	return (length); /* Return total character count */
 }
