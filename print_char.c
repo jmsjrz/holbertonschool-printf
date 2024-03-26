@@ -1,19 +1,23 @@
 #include "main.h"
 
 /**
- * print_char - imprime le caractère
- * Description: imprime le caractère
- * @format: caractère à afficher
- * Return: nombre de caractères
+* print_char - prints a character
+* @args: variable argument list containing the character to print
+*
+* Description: Extracts and prints a character from the variable
+* argument list. This function is intended to serve as a handler
+* for the '%c' format specifier in a printf-like function.
+*
+* Return: The number of characters printed (always 1).
 */
-int print_char(va_list format)
+int print_char(va_list args)
 {
-	/* Récupération de la valeur actuelle de la liste en entier. */
-	char c = va_arg(format, int);
+	/* Extract the character from the list, interpreting it as an integer. */
+	char c = va_arg(args, int);
 
-	/* Affichage de la valeur. */
+	/* Output the character. */
 	_putchar(c);
 
-	/* Retourne le nombre de caracteres */
+	/* Return the count of characters printed. */
 	return (1);
 }
