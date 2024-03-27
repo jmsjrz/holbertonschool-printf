@@ -17,7 +17,7 @@ int print_percent(va_list args);
 int print_integer(va_list args);
 
  /* Prototype that select & executes print function for a specifier. */
-int get_print_func(const char identifier, va_list args);
+int (*get_print_func(char *identifier))(va_list);
 
 /**
 * struct format - Struct to map format specifiers to their handling functions.
