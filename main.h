@@ -35,5 +35,7 @@ typedef struct format
 	int (*ptr_func)(va_list args); /* Function pointer for handling. */
 } format_t;
 
+/* Prototypes for the _printf function. */
+int _printf(const char *format, ...);
 
 #endif /* MAIN_H */
