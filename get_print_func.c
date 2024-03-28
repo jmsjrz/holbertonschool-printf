@@ -6,15 +6,16 @@
  * @identifier: format of the value
  * Return: pointer of print function
 */
-int (*get_print_func(char *identifier))(va_list)
+int (*get_print_func(const char *identifier))(va_list)
 {
 	int i;
 	format_t prints[] = {
 		{"c", print_char},
 		{"s", print_string},
+		{"%", print_percent},
 	};
 
-	for (i=0 ; i<2 ; i++)
+	for (i = 0 ; i < 2 ; i++)
 	{
 		if (prints[i].identifier == identifier)
 		{
