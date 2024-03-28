@@ -6,6 +6,8 @@
 #include <stdarg.h> /* Necessary for variable-length argument lists. */
 #include <string.h> /* For string manipulation functions. */
 #include <unistd.h> /* For system calls, like write, necessary for _putchar. */
+#include <limits.h> /* For defining integer type limits. */
+
 
 /* Prototype for putchar clone function. */
 int _putchar(char c);
