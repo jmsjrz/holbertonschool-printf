@@ -14,22 +14,22 @@
 */
 int print_string(va_list args)
 {
-	int length = 0; /* Character count */
+	int count = 0; /* Character count */
 
 	/* Retrieve string from va_list */
-	char *s = va_arg(args, char*);
+	char *string = va_arg(args, char*);
 
 	/* Handle NULL string case */
-	if (s != NULL)
+	if (string != NULL)
 	{
 		/* Iterate over each character in the string */
-		while (*s != '\0')
+		while (*string != '\0')
 		{
-			_putchar(*s); /* Output current character */
-			length++;     /* Increment character count */
-			s++;          /* Advance to next character */
+			_putchar(*string); /* Output current character */
+			count++;     /* Increment character count */
+			string++;          /* Advance to next character */
 		}
 	}
 
-	return (length); /* Return total character count */
+	return (count); /* Return total character count */
 }
