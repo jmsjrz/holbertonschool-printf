@@ -13,10 +13,10 @@
 int print_char(va_list args)
 {
 	/* Extract the character from the list, interpreting it as an integer. */
-	char c = va_arg(args, int);
+	char character = va_arg(args, int);
 
 	/* Output the character. */
-	_putchar(c);
+	_putchar(character);
 
 	/* Return the count of characters printed. */
 	return (1);
