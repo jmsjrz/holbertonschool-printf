@@ -14,12 +14,13 @@ int (*get_print_func(const char *identifier))(va_list)
 {
 	int index;
 
-	format_t prints[] = {
-		{"c", print_char},
-		{"s", print_string},
-		{"%", print_percent},
-		{"d", print_integer},
-		{"i", print_integer},
+format_t prints[] = {
+	{"c", print_char},
+	{"s", print_string},
+	{"%", print_percent},
+	{"d", print_integer},
+	{"i", print_integer},
+	{NULL, NULL} /* Marks the end of the array */
 	};
 
 	for (index = 0; index < 5; index++)
