@@ -30,6 +30,10 @@ int print_string(va_list args)
 			string++;          /* Advance to next character */
 		}
 	}
+	else
+	{
+		count = _printf("(null)");
+	}
 
 	return (count); /* Return total character count */
 }
