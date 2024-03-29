@@ -18,10 +18,8 @@
 int _printf(const char *format, ...)
 {
 	va_list args;
-	int count = 0; /* Counter for the number of characters printed */
-	int index; /* Index for iterating through the format specifier array */
+	int index, count = 0;
 
-	/* Array mapping format specifiers to their respective functions */
 	format_t prints[] = {
 		{"c", print_char},
 		{"s", print_string},
@@ -29,8 +27,7 @@ int _printf(const char *format, ...)
 		{"d", print_integer},
 		{"i", print_integer},
 		{NULL, NULL}
-	};
-
+	}; /* Array mapping format specifiers to their respective functions */
 	va_start(args, format); /* Initializing the argument list */
 	while (*format)
 	{
@@ -47,11 +44,14 @@ int _printf(const char *format, ...)
 				}
 				index++;
 			}
+			if (prints[index].identifier == NULL)
+			{
+				count += _putchar('%');
+				count += _putchar(*format);
+			}
 		}
 		else
-		{
 			count += _putchar(*format); /* Print non-format characters */
-		}
 		format++; /* Move to the next character in the format string */
 	}
 	va_end(args); /* Clean up the argument list */
