@@ -44,10 +44,11 @@ int _printf(const char *format, ...)
 				}
 				index++;
 			}
-			if (prints[index].identifier == NULL)
+			if (*format == '\0')
+				continue;
+			else if (prints[index].identifier == NULL)
 			{
-				count += _putchar('%');
-				count += _putchar(*format);
+				count += _printf("%%%c", *format); /* Print de undefined format */
 			}
 		}
 		else
