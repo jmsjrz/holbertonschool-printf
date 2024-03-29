@@ -1,0 +1,68 @@
+.TH _PRINTF 3 "March 2024" "Holberton School"
+
+.SH NAME
+_printf \- custom implementation of the printf function.
+
+.SH SYNOPSIS
+.B #include "main.h"
+.br
+.B int _printf(const char *format, ...);
+
+.SH DESCRIPTION
+The \fB_printf\fR function is a custom implementation of the standard library function \fBprintf\fR. It is designed to print formatted output to the standard output (stdout). This function was developed as part of the Holberton School curriculum by Charlène SCOMPARIN and James JAROSZ.
+
+.PP
+This function takes a format string and a variable number of arguments. The format string contains ordinary characters that are printed unchanged to the output stream and format specifiers, which are interpreted by \fB_printf\fR to print the corresponding arguments in a formatted way.
+
+.PP
+Supported format specifiers are:
+.TP
+\fB%c\fR
+Prints a single character.
+
+.TP
+\fB%s\fR
+Prints a null-terminated string.
+
+.TP
+\fB%%\fR
+Prints a percent sign ('%').
+
+.TP
+\fB%d\fR, \fB%i\fR
+Prints a signed integer.
+
+.SH "RETURN VALUE"
+On success, the \fB_printf\fR function returns the number of characters printed (excluding the terminating null byte used to end output to strings). If an error occurs, a negative value is returned.
+
+.SH "COMPILATION"
+To compile the program, ensure all source files are in the root directory and use the following command:
+.br
+.B gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -Wno-format *.c -o output
+
+.SH "EXAMPLES"
+.PP
+Print a character:
+.B _printf("%c", 'H'); // Output: H
+.PP
+Print a string:
+.B _printf("%s", "Holberton"); // Output: Holberton
+.PP
+Print a percent sign:
+.B _printf("%%"); // Output: %
+.PP
+Print integers:
+.B _printf("%d", 123); // Output: 123
+.br
+.B _printf("%i", -123); // Output: -123
+
+.SH "ENVIRONMENT"
+This program was developed and tested under Ubuntu 20.04 LTS, using the Betty coding and documentation style.
+
+.SH "SEE ALSO"
+printf(3), write(2), malloc(3), free(3), va_start(3), va_end(3), va_copy(3), va_arg(3)
+
+.SH "AUTHORS"
+Charlène SCOMPARIN <https://github.com/ChSPN>
+.br
+James JAROSZ <https://github.com/jmsjrz>
