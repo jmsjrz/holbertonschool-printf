@@ -10,7 +10,8 @@ This repository holds the code for a custom implementation of the `printf` funct
 - **Coding Style:** Betty style for both coding and documentation.
 
 ## UML DIAGRAM OVERVIEW (Unified Modeling Language)
-![UML Diagram](copier-url-ici "UML Diagram")
+![UML Diagram](flowchart_printf_project.jpg)
+![UML Diagram](flowchart_get_func_print.jpg)
 
 ## REQUIREMENTS
 
