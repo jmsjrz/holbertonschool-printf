@@ -12,7 +12,7 @@
 */
 int print_integer(va_list args)
 {
-	long int num = va_arg(args, long int); /* The integer to print */
+	long int num = va_arg(args, int); /* The integer to print */
 	long int numAbs = 0; /* Absolute value of the integer */
 	long int tempNum = numAbs; /* Temporary variable for processing */
 	long int digitPlace = 1; /* Position of digit (tens, hundreds, etc.) */
