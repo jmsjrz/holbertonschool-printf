@@ -2,59 +2,52 @@
 
 /**
 * _printf - Custom implementation of the printf function.
-* @format: The format string that specifies the format to output.
-* @...: A variable number of arguments to be formatted and printed.
+* @format: format string that specifies the output format.
+* @...: variable number of arguments to format and print.
 *
-* Description: This function mimics the standard 'printf' behavior, printing
-* the formatted output to the standard output (stdout). It supports format
-* specifiers for printing characters (%c), strings (%s), percentages (%%),
-* and integers (%d, %i). The function iterates over the format string and
-* processes each character and format specifier accordingly. When a format
-* specifier is encountered, it delegates the processing to the corresponding
-* function pointed to within an array of structs.
+* Description: Mimics the standard 'printf' function, printing formatted output
+* to stdout. Supports %c (characters), %s (strings), %% (percent sign), %d and
+* %i (integers). Iterates over the format string, handling each character and
+* format specifier by delegating to specific functions.
 *
-* Return: The total number of characters printed, excluding the null byte.
+* Return: Total number of printed characters, excluding the null byte.
 */
 int _printf(const char *format, ...)
 {
-	va_list args;
-	int index, count = 0;
+	va_list args; /* Initializes a variable argument list */
+	int index = 0, count = 0;
 
-	format_t prints[] = {
-		{"c", print_char},
-		{"s", print_string},
-		{"%", print_percent},
-		{"d", print_integer},
-		{"i", print_integer},
-		{NULL, NULL}
-	}; /* Array mapping format specifiers to their respective functions */
-	va_start(args, format); /* Initializing the argument list */
-	while (*format)
+	int (*func)(va_list) = NULL; /* Pointer to function for handling specifiers */
+
+	va_start(args, format); /* Start iterating arguments list */
+
+	if (!format) /* Validate format string presence */
+		return (-1);
+
+	while (format[index]) /* Iterate through the format string */
 	{
-		if (*format == '%') /* Check for format specifier */
+		if (format[index] != '%') /* Print regular characters */
 		{
-			format++; /* Move to the format specifier character */
-			index = 0; /* Reset index for each format specifier */
-			while (prints[index].identifier)
-			{
-				if (*format == *(prints[index].identifier))
-				{
-					count += prints[index].ptr_func(args); /* Call handler */
-					break; /* Exit the loop once the handler is called */
-				}
-				index++;
-			}
-			if (*format == '\0')
-				continue;
-			else if (prints[index].identifier == NULL)
-			{
-				count += _printf("%%%c", *format); /* Print de undefined format */
-			}
+			_putchar(format[index++]);
+			count++;
+			continue;
 		}
-		else
-			count += _putchar(*format); /* Print non-format characters */
-		format++; /* Move to the next character in the format string */
+		if (!format[++index]) /* Handle incomplete specifier at end */
+			return (-1);
+		func = get_print_func(&format[index]); /* Get func for current specifier */
+		if (func) /* If valid specifier, use function to print */
+			count += func(args);
+		else /* Handle invalid specifier */
+		{
+			_putchar('%');
+			if (format[index] != '%') /* Print current char if not percent */
+				_putchar(format[index]);
+			else
+				count--; /* Adjust count for escaped percent */
+			count += 2;
+		}
+		index++; /* Move to next character in format string */
 	}
-	va_end(args); /* Clean up the argument list */
-	return (count); /* Return the count of printed characters */
+	va_end(args);
+	return (count);
 }
